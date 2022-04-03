@@ -1,9 +1,20 @@
 require 'json'
 class ProjectsController < ApplicationController
   def index
-    file = File.read('app/controllers/message.json')
-    @data_hash = JSON.parse(file)
-    #puts data_hash
-    #render json:data_hash 
+    @cats= Category.all
   end 
+    def update
+      todoUpdate = Todo.find_by(id: params[:id])
+     if todoUpdate.isCompleted == true 
+      todoUpdate.isCompleted = false
+      todoUpdate.isChecked='false'
+      todoUpdate.save
+     else 
+      todoUpdate.isCompleted = true
+      todoUpdate.isChecked='checked'
+      todoUpdate.save
+     end
+     render json:[params[:id],todoUpdate.isCompleted]
+    end
 end
+

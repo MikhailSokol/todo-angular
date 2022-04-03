@@ -1,35 +1,5 @@
 
 
-<div class="hedeardiv"><h1 class="header">Задачи</h1>
-<div class="plus">
-<div id="add"  type="button"  data-toggle="modal" data-target="#myModal">
-<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 20 20">
-  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-</svg>
-</div>
-</div>
-
-</div>
-    <div class="parent">
-      <% @cats.each do |cat| %>
-      
-      <div id=<%=cat.id %> class="p-3 border bg-light">
-      <%=cat.title %>
-
-      <% cat.todos.each do |c| %>
-       <div id=<%=c.id %> class="form-check">
-         <input id=<%=c.id %> class="form-check-input" type="checkbox" value=false  <%=c.isChecked%>  >
-           <label  class="form-check-label" style='text-decoration:<%=c.isCompleted==true ?'line-through':'none' %>' >
-                   <%=c.text %>
-          </label>
-       </div>
-      
-      <% end %>
-      </div>
-       <% end %>
-</div>
-    
-
 <div id="myModal" class="modal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -39,7 +9,7 @@
       </div>
       <div class="modal-body" id="inp">
         <div class="modal-content" >
-        <input id="inputTodo" type="text" pattern="[A-Za-z]" placeholder="Название задачи..."/>
+        <input id="inputTodo" placeholder="Название задачи..."/>
         </div>
         <br>
          <div  >
@@ -62,8 +32,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
