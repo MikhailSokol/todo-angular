@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_01_143551) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "todos", array: true
   end
 
   create_table "todos", force: :cascade do |t|

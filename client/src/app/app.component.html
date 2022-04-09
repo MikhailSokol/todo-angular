@@ -1,0 +1,28 @@
+<mat-card class="header">
+  <div>Задачи</div>
+  <span id="icon" mat-button (click)="openDialog()" ><mat-icon aria-hidden="false" class="material-icons">add</mat-icon></span>
+</mat-card>
+  
+<mat-grid-list cols="3"  gutterSize="200px" rowHeight="{{TodoServices.size}}"   >
+  <mat-grid-tile *ngFor="let todo of TodoServices.todos;let i =index"   >
+  <mat-grid-tile-header >
+    <div id="title">{{todo.title}}</div>
+  </mat-grid-tile-header>
+    <div class="main">
+      <div class="list"  > 
+        <div class="item" *ngFor="let t of todo.todos;let i =index" > 
+          <mat-checkbox type="checkbox" class="example-margin"  (click)="TodoServices.updateFetch(todo.id,t.id)"  [checked]="t.isCompleted" [color] > 
+            <div style="text-decoration:{{t.isCompleted=== true ?'line-through':'none'}}" class="text">
+              {{t.text}}
+            </div>
+          </mat-checkbox>
+          </div>
+    </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+  
+
+
+
+

@@ -7,7 +7,7 @@ el.addEventListener('click',async(e)=>{
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({isCompleted:e.target.value, idChecked:e.target.value}),
+    body: JSON.stringify({isCompleted:e.target.value, isChecked:e.target.value}),
   })
     const data = await responce.json()
     console.log(data)
