@@ -1,0 +1,35 @@
+
+<fieldset [formGroup]="todo">
+<div id="flex">
+  <div id="titleAdd">Добавить задачу</div>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Введите название задачи</mat-label>
+    <input required formControlName="text" matInput type="text" >
+  </mat-form-field>
+  <div id="select">
+    <mat-form-field   class="example-form-field" appearance="fill">
+    <mat-label>Выберете категорию</mat-label>
+    <mat-select   > 
+      <mat-option value="todo.title"  (click)="selectOption(todo.title)" *ngFor="let todo  of TodoServices.todos"  >
+       {{todo.title}}
+      </mat-option>
+      <mat-option value="Добавить категорию"  (click)="selectOption('0')">
+        Добавить категорию
+       </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="visible" id="newCategory">
+    <mat-form-field  class="example-form-field" appearance="fill">
+      <mat-label>Введите название категории</mat-label>
+      <input formControlName="category"  matInput type="text"  > 
+    </mat-form-field>
+    <div id="error">1212222222222222</div>
+  </div>
+  </div>
+  <div>
+    <button class="modalBtn" (click)="createFetch()" mat-dialog-close mat-button color="primary">отправить</button>
+    <button class="modalBtn"   mat-button mat-dialog-close mat-button color="primary">закрыть</button>
+  </div>
+</div>
+</fieldset>
+
